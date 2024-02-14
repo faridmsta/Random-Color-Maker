@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+
+<body >
+    <main class="w-[90%] m-auto p-5 text-center">
+        <div class="colors grid grid-cols-6 gap-5 ">
+            
+        </div>
+        <button class="bg-orange-500 p-2 rounded m-2  " onclick="setboxes()">Refresh</button>
+    </main>
+
+    <script>
+        
+        let allcolors= document.querySelector(".colors")
+        let body = document.querySelector("body")
+        function setboxes(){
+            let code = ''
+            for (let i = 0; i < 12; i++) {
+            code += `<div style="background-color: rgb( ${random(0, 255)}, ${random(0, 255)}, ${random(0, 255)});" onclick="setcolor(this)" class="colorBox border-2  border-white w-[80px] h-[80px] ">
+
+                </div>
+                `
+        }
+        allcolors.innerHTML=code
+        }
+        function setcolor(th){
+            console.log(th.style.backgroundColor);
+            body.style.backgroundColor= `${th.style.backgroundColor}`
+        }
+        setboxes()
+        
+        function random(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+    </script>
+</body>
+
+</html>
